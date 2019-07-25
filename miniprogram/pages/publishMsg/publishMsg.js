@@ -160,12 +160,34 @@ Page({
       formData.nickName = this.data.nickName;
       console.log("###", this.data.avatarUrl)
 
+      // // 写入行程汇总数据
+      // let insertCourse = new Promise(function(resolve, reject) {
+      //   // 写入发布信息数据
+      //   db.collection('passengerMsg').add({
+      //     // data 字段表示需新增的 JSON 数据
+      //     data: formData,
+      //     success: function (res) {
+      //       resolve()
+      //       // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+      //     },
+      //     fail: function (res) {
+      //       reject()
+      //     }
+      //   })
+      // })
+
       // 写入行程汇总数据
-      let insertCourse = new Promise(function(resolve, reject) {
+      let insertCourse = new Promise(function (resolve, reject) {
         // 写入发布信息数据
-        db.collection('passengerMsg').add({
-          // data 字段表示需新增的 JSON 数据
-          data: formData,
+        wx.request({
+          url: "http://localhost:8001/passenger/publishMsg",
+          data: {
+            publishMsg: formData
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/json',
+          },
           success: function (res) {
             resolve()
             // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
@@ -173,6 +195,7 @@ Page({
           fail: function (res) {
             reject()
           }
+
         })
       })
 
