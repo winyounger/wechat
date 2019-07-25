@@ -64,7 +64,7 @@ map {
   left: 0;
   right: 0;
   bottom: 35px;
-  background-color:#45b489;
+  background-color:#47dba2;
   color: #fff;
   border-radius: 18px;
 }

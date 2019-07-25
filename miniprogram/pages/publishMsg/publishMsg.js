@@ -4,14 +4,14 @@
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 
 // 实例化API核心类
-var demo = new QQMapWX({
+var tencentMap = new QQMapWX({
   key: 'H6HBZ-T5LCV-CXFPA-UAJJR-UDJTE-5EB3X' // 必填
 });
 
 // 获取数据库的引用
-const db = wx.cloud.database({
-  env: 'test-f41d36'
-})
+// const db = wx.cloud.database({
+//   env: 'test-f41d36'
+// })
 
 const searchObj = {}
 
@@ -80,7 +80,7 @@ Page({
           longitude: longitude
         })
         // 调用接口
-        demo.reverseGeocoder({
+        tencentMap.reverseGeocoder({
           location: {
             latitude: latitude,
             longitude: longitude
@@ -143,7 +143,7 @@ Page({
         wx.showModal({
           title: '提示',
           showCancel: false,
-          content: '请完善拼车信息！'
+          content: '请完善所有信息！'
         });
         break;
       }
@@ -241,7 +241,7 @@ Page({
   },
   searchAddress: function(e) {
     console.log(e.detail.value)
-    demo.getSuggestion({
+    tencentMap.getSuggestion({
       keyword: e.detail.value,
       success: function (res) {
         console.log(res);
@@ -269,7 +269,7 @@ Page({
     wx.chooseLocation({
       success: function (res) {
         // 解析地址获取 市区县等信息
-        demo.reverseGeocoder({
+        tencentMap.reverseGeocoder({
           location: {
             latitude: res.latitude,
             longitude: res.longitude
@@ -308,7 +308,7 @@ Page({
     wx.chooseLocation({
       success: function (res) {
         // 解析地址获取 市区县等信息
-        demo.reverseGeocoder({
+        tencentMap.reverseGeocoder({
           location: {
             latitude: res.latitude,
             longitude: res.longitude

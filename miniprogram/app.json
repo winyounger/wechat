@@ -22,11 +22,11 @@
     "backgroundColor": "#7A7A7A",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "同城拼车",
+    "navigationBarTitleText": "风驰畅行顺风车",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#32c9b5",
+    "selectedColor": "#b0f3d2",
     "list": [
       {
         "pagePath": "pages/index/index",

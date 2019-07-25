@@ -81,15 +81,9 @@ Page({
                     },
                     success: function (res) {
                       console.log("success");
-                      wx.switchTab({
-                        url: '../publish/publish'
-                      })
                     },
                     fail: function (error) {
                       console.log(error);
-                      wx.switchTab({
-                        url: '../publish/publish'
-                      })
                     }
                   })
                 }
@@ -97,18 +91,16 @@ Page({
             },
             fail: function (error) {
               console.log(error);
-              wx.switchTab({
-                url: '../publish/publish'
-              })
             }
           })
         } else {
           console.log("error code " + res.errMsg);
-          wx.switchTab({
-            url: '../publish/publish'
-          })
         }
       }
+    }),
+    //跳转到发布页
+    wx.switchTab({
+      url: '../publish/publish'
     })
   },
   /**
